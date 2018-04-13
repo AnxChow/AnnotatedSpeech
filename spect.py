@@ -1,7 +1,9 @@
 import os
 import wave
+import matplotlib
+from matplotlib import pylab
+from pylab import *
 
-import pylab
 def graph_spectrogram(wav_file):
     sound_info, frame_rate = get_wav_info(wav_file)
     pylab.figure(num=None, figsize=(19, 12))
