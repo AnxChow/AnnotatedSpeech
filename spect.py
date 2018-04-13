@@ -1,6 +1,7 @@
 import os
 import wave
-import matplotlib
+import matplotlib as mpl
+mpl.use('TkAgg')
 from matplotlib import pylab
 from pylab import *
 

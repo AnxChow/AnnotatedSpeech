@@ -14,6 +14,7 @@ timeArray = arange(0, snd.shape[0], 1)
 timeArray = timeArray / sampFreq
 timeArray = timeArray * 1000  #scale to milliseconds
 plot(timeArray, s1, color='k')
-plt.savefig( 'amp' )
 ylabel('Amplitude')
 xlabel('Time (ms)')
+plt.savefig( 'amp' )
+
