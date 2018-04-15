@@ -13,3 +13,5 @@ def f(filename):
     savefig(filename+'.png',bbox_inches='tight')
 
 f('test.wav')
+
+#A sound file does not have just a single "frequency" at any given time, unless it is just a recording of a pure sinusoidal tone. What you probably need to do is capture the power spectrum at regular intervals and store that, or possibly do some kind of processing on the power spectrum, such as identifying the largest N peaks and store those.
