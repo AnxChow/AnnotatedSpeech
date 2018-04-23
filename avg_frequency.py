@@ -20,11 +20,7 @@ def f(wav_file):
     for x in range(0,len(t)):
         sum=(np.dot(spectrum[x],freqs.T))
         avg_freqs.append(sum/np.sum(spectrum[x]))
-    pylab.figure(num=None, figsize=(19, 12))
-    pylab.subplot(111)
-    pylab.title('avg freqs of %r' % wav_file)
-    pylab.plot(t,avg_freqs)
-    pylab.savefig(wav_file+'_avg_freq.png')
+    return avg_freqs, t
 
 def get_wav_info(wav_file):
     wav = wave.open(wav_file, 'r')
@@ -34,8 +30,15 @@ def get_wav_info(wav_file):
     wav.close()
     return sound_info, frame_rate
 
-f('test.wav')
-f('Pitches/hello1.wav')
-f('Pitches/hello2.wav')
+# f('test.wav')
+f1, t1 = f('Pitches/hello1.wav')
+f2, t2 = f('Pitches/hello2.wav')
+
+pylab.figure(num=None, figsize=(19, 12))
+pylab.subplot(111)
+pylab.title('Pitch')
+pylab.plot(t1,f1)
+pylab.plot(t2,f2)
+pylab.savefig('hello_avg_freq.png')
 
 #A sound file does not have just a single "frequency" at any given time, unless it is just a recording of a pure sinusoidal tone. What you probably need to do is capture the power spectrum at regular intervals and store that, or possibly do some kind of processing on the power spectrum, such as identifying the largest N peaks and store those.
