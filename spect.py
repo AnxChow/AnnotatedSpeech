@@ -11,8 +11,8 @@ def graph_spectrogram(wav_file):
     pylab.subplot(111)
     pylab.title('spectrogram of %r' % wav_file)
     spectrum=pylab.specgram(sound_info, Fs=frame_rate, NFFT=8192)
-    pylab.savefig('spectrogram.png')
-    
+    pylab.savefig(wav_file+'_spectrogram.png')
+
 def get_wav_info(wav_file):
     wav = wave.open(wav_file, 'r')
     frames = wav.readframes(-1)
@@ -21,5 +21,4 @@ def get_wav_info(wav_file):
     wav.close()
     return sound_info, frame_rate
 
-graph_spectrogram('test.wav')
-print(get_wav_info('test.wav'))
+graph_spectrogram('Cats/cats_un_ro.wav')

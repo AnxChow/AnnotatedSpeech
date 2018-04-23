@@ -3,10 +3,11 @@ mpl.use('TkAgg')
 from matplotlib import pylab
 from pylab import *
 from scipy.io import wavfile
+import math
 
 # reference: http://samcarcagno.altervista.org/blog/basic-sound-processing-python/?doing_wp_cron=1523395684.8911240100860595703125
 
-sampFreq, snd = wavfile.read('Pitches/cats_cert.wav')
+sampFreq, snd = wavfile.read('Cats/cats_un_ro.wav')
 snd = snd / (2.**15)
 s1 = snd[:,0]  #working with one channel only
 
@@ -23,7 +24,7 @@ sum=0.0
 for x in knownTime: #go through the word end times
     for i in range(start,x): #go through the word
         sum=sum+s1[i]
-    ampVals.append(sum/(x-start)) #avg
+    ampVals.append(20*(math.log10(abs(sum/(x-start))))) #avg
     start=x
 #should we hold max value or the avg value? (amplitude)
 print(ampVals)
