@@ -34,8 +34,7 @@ def get_wav_info(wav_file):
     wav.close()
     return sound_info, frame_rate
 
-f('test.wav')
-f('Pitches/hello1.wav')
-f('Pitches/hello2.wav')
+f('Pitches/cats_un.wav')
+f('Pitches/cats_cert.wav')
 
 #A sound file does not have just a single "frequency" at any given time, unless it is just a recording of a pure sinusoidal tone. What you probably need to do is capture the power spectrum at regular intervals and store that, or possibly do some kind of processing on the power spectrum, such as identifying the largest N peaks and store those.

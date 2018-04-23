@@ -6,7 +6,7 @@ from scipy.io import wavfile
 
 # reference: http://samcarcagno.altervista.org/blog/basic-sound-processing-python/?doing_wp_cron=1523395684.8911240100860595703125
 
-sampFreq, snd = wavfile.read('test.wav')
+sampFreq, snd = wavfile.read('Pitches/cats_cert.wav')
 snd = snd / (2.**15)
 s1 = snd[:,0]  #working with one channel only
 
